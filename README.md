@@ -1,19 +1,14 @@
-# Aerogel::Module123
+# Aerogel::Media
 
-An aerogel module skeleton. Starting point for any generic aerogel module.
-
-This module template includes all folders an aerogel module can use, but none of them are obligatory. For example, if a module does not have any assets, it is perfectly safe to remove assets/* folders.
+File attachments for aerogel models.
 
 ## Usage
 
-1. Clone repository
-2. Rename 'module123' to your module name anywhere
-3. Add code, remove unneeded folders
 
 In your application's config.ru:
 ```ruby
-require 'aerogel'
-require 'aerogel/module123' # ...change to your module name
+require 'aerogel/core'
+require 'aerogel/media' #
 
 run Aerogel::Application.load
 ```
