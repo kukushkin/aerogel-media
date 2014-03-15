@@ -1,7 +1,10 @@
 require 'aerogel/core'
 require 'aerogel/media/version'
 require 'aerogel/media/core'
+require 'aerogel/media/field_types'
 require 'aerogel/media/model'
+require 'aerogel/media/uploaded_file'
+
 
 module Aerogel
 
