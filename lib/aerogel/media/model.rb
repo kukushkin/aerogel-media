@@ -1,13 +1,14 @@
 module Model
 
   define_field_type Media::File, :define_field_media_file
-  define_field_type Media::Image, :define_field_media_file
+  define_field_type Media::Image, :define_field_media_image
 
   module ClassMethods
 
     def define_field_media_file( name, opts = {} )
       unless self.respond_to? :dragonfly_accessor
         extend Dragonfly::Model
+        extend Dragonfly::Model::Validations
       end
       type = opts[:type]
       define_field_mongoid name, type: type
@@ -45,6 +46,7 @@ module Model
 
     def define_field_media_image( name, opts = {} )
       define_field_media_file( name, opts )
+      validates_property :mime_type, of: name, as: 'image/jpeg'
       puts "** field #{name}, type:Media::Image -- instantiated"
     end
 

@@ -1,4 +1,5 @@
 require 'dragonfly'
+require 'dragonfly/model/validations'
 
 module Aerogel::Media
 

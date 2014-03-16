@@ -2,4 +2,9 @@
 <% if field.required? -%> <abbr class="required" title="<%= t 'aerogel.forms.required' %>">*</abbr>
 <% end -%>
 </label>
+
+<% if field.value %>
+Uploaded file: <%= link_to field.value.url, "#{field.value.name} (#{field.value.size})" %>
+<% end %>
+
 <input id="<%= field.css_id %>" type="file" name="<%= field.html_name %>" value="<%= h field.value %>"  <%= field.required? ? 'required' : '' %> <%= field.html_params %> class="form-control" />

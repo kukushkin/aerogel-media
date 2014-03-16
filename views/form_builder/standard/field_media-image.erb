@@ -1,0 +1,19 @@
+<label for="<%= field.css_id %>"><%= field.label -%>
+<% if field.required? -%> <abbr class="required" title="<%= t 'aerogel.forms.required' %>">*</abbr>
+<% end -%>
+</label>
+
+<% if field.value %>
+Uploaded image: <%= image_tag field.value.thumb('100x100') %><%= field.value.name %>
+<br/>
+<%= field.value.url %>
+<br/>
+<%= tag :input, "Remove", type: :checkbox, name: field.html_name("remove_#{field.name}") %>
+<% end %>
+<input id="<%= field.css_id %>" type="file" name="<%= field.html_name %>" value="<%= h field.value %>"  <%= field.required? ? 'required' : '' %> <%= field.html_params %> class="form-control" />
+
+<%= tag :input, type: :hidden,
+    name: field.html_name("retained_#{field.name}"),
+    value: field.data_object.send(:"retained_#{field.name}")
+%>
+<%= field.data_object.send :"retained_#{field.name}" %>
