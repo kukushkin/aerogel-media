@@ -26,7 +26,7 @@ module Model
 
       # Converts an object of this instance into a database friendly value.
       def mongoize
-        uid.nil? ? nil : [ uid, name ]
+        (uid.nil? && name.nil?) ? nil : [ uid, name ]
       end
 
       class << self

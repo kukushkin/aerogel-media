@@ -18,6 +18,7 @@ module Model
 
       define_method "#{name}_uid=" do |value|
         self[name] = ( type.new( self[name] ).tap {|f| f.uid = value } ).mongoize
+        value
       end
 
       define_method "#{name}_name" do
@@ -26,6 +27,7 @@ module Model
 
       define_method "#{name}_name=" do |value|
         self[name] = ( type.new( self[name] ).tap {|f| f.name = value } ).mongoize
+        value
       end
 
       dragonfly_accessor name
@@ -33,9 +35,9 @@ module Model
       alias_method :"dragonfly_accessor_#{name}=", :"#{name}="
       define_method "#{name}=" do |value|
         if Hash === value && value.key?(:tempfile) && value.key?( :filename )
-          send :"dragonfly_accessor_#{name}=", Aerogel::Media::UploadedFile.new( value )
+          self.send :"dragonfly_accessor_#{name}=", Aerogel::Media::UploadedFile.new( value )
         else
-          send :"dragonfly_accessor_#{name}=", value
+          self.send :"dragonfly_accessor_#{name}=", value
         end
       end
       puts "** field #{name}, type:#{type} -- instantiated"
