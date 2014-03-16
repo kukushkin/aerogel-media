@@ -55,6 +55,7 @@ module Media
   end # class File
 
   class Image < File
+    MIME_TYPES = ['image/jpeg', 'image/png', 'image/gif']
     # definitions here
   end # class Image
 

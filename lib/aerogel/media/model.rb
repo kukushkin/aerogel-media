@@ -41,13 +41,11 @@ module Model
           self.send :"dragonfly_accessor_#{name}=", value
         end
       end
-      puts "** field #{name}, type:#{type} -- instantiated"
     end
 
     def define_field_media_image( name, opts = {} )
       define_field_media_file( name, opts )
-      validates_property :mime_type, of: name, as: 'image/jpeg'
-      puts "** field #{name}, type:Media::Image -- instantiated"
+      validates_property :mime_type, of: name, in: Media::Image::MIME_TYPES, message: :not_an_image
     end
 
   end # module ClassMethods
