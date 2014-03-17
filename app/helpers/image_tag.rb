@@ -9,3 +9,18 @@ def image_tag( src, opts = {} )
     h "<not an image!>"
   end
 end
+
+
+# Renders an IMG for a given +thumb+ enclosed in A.fancybox
+#
+#  <%= image_thumb_tag @user.avatar, '100x100' %>
+#
+def image_thumb_tag( src, thumb, opts = {} )
+  if ( src.try(:image?) rescue false )
+    tag :a, { href: src.url, class: 'fancybox', title: src.description }.merge(opts) do
+      image_tag src.thumb(thumb)
+    end
+  else
+    h "<not an image!>"
+  end
+end

@@ -46,7 +46,6 @@ module Media
         case object
         when Media::File then object.mongoize
         else
-          puts "** Model::Media::File.evolve(): object=#{object.inspect}"
           object
         end
       end

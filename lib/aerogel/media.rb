@@ -4,7 +4,7 @@ require 'aerogel/media/core'
 require 'aerogel/media/field_types'
 require 'aerogel/media/model'
 require 'aerogel/media/uploaded_file'
-
+require 'aerogel/media/dragonfly_attachment'
 
 module Aerogel
 

@@ -5,7 +5,7 @@ require 'aerogel/media/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "aerogel-media"
-  spec.version       = Aerogel::Module123::VERSION
+  spec.version       = Aerogel::Media::VERSION
   spec.authors       = ["Alex Kukushkin"]
   spec.email         = ["alex@kukushk.in"]
   spec.description   = %q{File attachments for aerogel models}

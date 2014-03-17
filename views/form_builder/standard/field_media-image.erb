@@ -4,9 +4,7 @@
 </label>
 
 <% if field.value %>
-Uploaded image: <%= image_tag field.value.thumb('100x100') %><%= field.value.name %>
-<br/>
-<%= field.value.url %>
+<%= image_thumb_tag field.value, '100x100' %>
 <br/>
 <%= tag :input, "Remove", type: :checkbox, name: field.html_name("remove_#{field.name}") %>
 <% end %>
