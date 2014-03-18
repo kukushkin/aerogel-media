@@ -1,0 +1,8 @@
+en:
+    aerogel:
+        forms:
+            file:
+                empty: "no file selected"
+                select: "Choose file..."
+                change: "Change"
+                remove: "Remove"

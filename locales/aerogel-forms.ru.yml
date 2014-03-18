@@ -1,0 +1,8 @@
+ru:
+    aerogel:
+        forms:
+            file:
+                empty: "файл не выбран"
+                select: "Выбрать файл..."
+                change: "Изменить"
+                remove: "Удалить"

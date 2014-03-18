@@ -1,0 +1,12 @@
+.smart-file-input {
+    .file-empty .btn-file-select,
+    .file-exists .btn-file-change,
+    .file-exists .btn-file-remove {
+        margin-top: 5px;
+    }
+
+    .file-label {
+        color: #aaa;
+        font-size: 0.9em;
+    }
+}

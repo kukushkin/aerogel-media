@@ -1,5 +1,10 @@
 ru:
+    errors:
+        messages:
+                not_an_image: "имеет неправильный тип файла, необходим файл изображения"
+
     mongoid:
+
         models:
             model123: Модель 123
 

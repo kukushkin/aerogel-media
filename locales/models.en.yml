@@ -1,5 +1,11 @@
 en:
+    errors:
+        messages:
+                not_an_image: "has invalid file type, an image file is expected"
     mongoid:
+        errors:
+            not_an_image:
+
         models:
             model123: Model 123
 
