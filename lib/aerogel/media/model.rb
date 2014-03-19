@@ -6,10 +6,17 @@ module Model
   module ClassMethods
 
     def define_field_media_file( name, opts = {} )
+
+      opts = {
+        # defaults
+        app: :file
+      }.deep_merge opts
+
       unless self.respond_to? :dragonfly_accessor
         extend Dragonfly::Model
         extend Dragonfly::Model::Validations
       end
+
       type = opts[:type]
       define_field_mongoid name, type: type
 
@@ -31,7 +38,7 @@ module Model
         value
       end
 
-      dragonfly_accessor name
+      dragonfly_accessor name, app: opts[:app]
 
       alias_method :"dragonfly_accessor_#{name}=", :"#{name}="
       define_method "#{name}=" do |value|
@@ -44,7 +51,7 @@ module Model
     end
 
     def define_field_media_image( name, opts = {} )
-      define_field_media_file( name, opts )
+      define_field_media_file name, { app: :image }.merge(opts)
       validates_property :mime_type, of: name, in: Media::Image::MIME_TYPES, message: :not_an_image
     end
 
