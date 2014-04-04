@@ -25,7 +25,10 @@
 #
 # </div>
 #
-smart_file_input = (widget) ->
+@smart_file_input = (widget) ->
+    if widget.hasClass 'smart-file-input-applied'
+        console?.log "** smart-file-input: already applied, aborting", widget
+        return
     widget.addClass "smart-file-input-applied"
     input_tag = widget.find 'input[type=file]'
     input_remove_tag = widget.find 'input.file-remove-field'
@@ -123,7 +126,7 @@ smart_file_input = (widget) ->
 
 # Apply on ready
 $ ->
-    $(".smart-file-input:not(.smart-file-input-applied)").each ->
-        smart_file_input $(this)
+    $(".smart-file-input").each ->
+        smart_file_input $(@)
     console?.log "** smart-file-input: loaded"
 

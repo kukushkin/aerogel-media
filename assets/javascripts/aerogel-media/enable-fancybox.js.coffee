@@ -24,13 +24,13 @@ fancybox_open_img_src = (el) ->
     console?.log "** fancybox: called handler on IMG SRC title:#{title}"
 
 $ ->
-    $("A.fancybox").on 'click', (e) ->
+    $("body").on 'click', "A.fancybox", (e) ->
         fancybox_open_a_href this
         e.preventDefault()
-    $("IMG.fancybox").on 'click', (e) ->
+    $("body").on 'click', "IMG.fancybox", (e) ->
         fancybox_open_img_src this
         e.preventDefault()
-    $("IMG.fancybox").hover ->
+    $("body").on 'mouseenter', "IMG.fancybox", (e) ->
         $(this).css('cursor', 'pointer')
 
     console?.log "** fancybox: event handlers installed"
